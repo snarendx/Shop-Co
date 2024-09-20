@@ -24,7 +24,7 @@ const ProductPage = () => {
 
   const getThumbnailClassName = (thumbnail) => {
     return `w-full md:w-44 h-44 md:h-full rounded-xl ${
-      selectedThumbnail === thumbnail ? "border border-black" : ""
+      selectedThumbnail === thumbnail ? "border " : ""
     }`;
   };
 
@@ -51,35 +51,41 @@ const ProductPage = () => {
   };
 
   return (
-    <div className="p-8 bg-white">
-      <p className="flex items-center">
-        Home <TbMathGreater />
-        Shop <TbMathGreater />
-        Men <TbMathGreater />
-        T- shirts
+    <div className="p-4 md:p-8 bg-white">
+      <p className="flex items-center text-sm md:text-base">
+        Home <TbMathGreater className="mx-1" />
+        Shop <TbMathGreater className="mx-1" />
+        Men <TbMathGreater className="mx-1" />
+        T-shirts
       </p>
-      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
         {/* Thumbnails */}
         <div className="flex flex-col md:flex-row">
-          <div className="flex flex-col space-y-2 md:mr-4 rounded-3xl">
-            <img
-              src="/1TShirt.jpg"
-              alt="T-shirt thumbnail"
-              className={getThumbnailClassName("1TShirt")}
-              onClick={() => handleThumbnailClick("1TShirt")}
-            />
-            <img
-              src="/2TShirt.jpg"
-              alt="T-shirt thumbnail"
-              className={getThumbnailClassName("2TShirt  rounded-3xl")}
-              onClick={() => handleThumbnailClick("2TShirt")}
-            />
-            <img
-              src="/3TShirt.jpg"
-              alt="T-shirt thumbnail"
-              className={getThumbnailClassName("3TShir rounded-3xlt")}
-              onClick={() => handleThumbnailClick("3TShirt")}
-            />
+          <div className="flex flex-row md:flex-col space-x-2 md:space-x-0 md:space-y-2 md:mr-4">
+            <div className="rounded-3xl overflow-hidden">
+              <img
+                src="/1TShirt.jpg"
+                alt="T-shirt thumbnail"
+                className={getThumbnailClassName("1TShirt")}
+                onClick={() => handleThumbnailClick("1TShirt")}
+              />
+            </div>
+            <div className="rounded-3xl overflow-hidden">
+              <img
+                src="/2TShirt.jpg"
+                alt="T-shirt thumbnail"
+                className={getThumbnailClassName("2TShirt")}
+                onClick={() => handleThumbnailClick("2TShirt")}
+              />
+            </div>
+            <div className="rounded-3xl overflow-hidden">
+              <img
+                src="/3TShirt.jpg"
+                alt="T-shirt thumbnail"
+                className={getThumbnailClassName("3TShirt")}
+                onClick={() => handleThumbnailClick("3TShirt")}
+              />
+            </div>
           </div>
           <div>
             <img
@@ -89,19 +95,20 @@ const ProductPage = () => {
             />
           </div>
         </div>
+
         {/* Product Details */}
         <div>
-          <h1 className="text-3xl font-extrabold">ONE LIFE GRAPHIC T-SHIRT</h1>
-          <div className="flex items-center">
+          <h1 className="text-2xl md:text-3xl font-extrabold">ONE LIFE GRAPHIC T-SHIRT</h1>
+          <div className="flex items-center mt-2">
             {renderStars(rating)}
-            <p className="ml-2">{rating}/5</p>
+            <p className="ml-2 text-sm md:text-base">{rating}/5</p>
           </div>
-          <p className="text-2xl font-semibold text-red-500 mt-2">
+          <p className="text-xl md:text-2xl font-semibold text-red-500 mt-2">
             $260 <span className="line-through text-gray-500">$300</span>{" "}
             <span className="text-pink-500">-40%</span>
           </p>
-          <p className="text-gray-600 mt-4">
-            This graphic t-shirt which is perfect for any occasion. Crafted from
+          <p className="text-gray-600 mt-4 text-sm md:text-base">
+            This graphic t-shirt is perfect for any occasion. Crafted from
             a soft and breathable fabric, it offers superior comfort and style.
           </p>
           <hr className="mt-2" />
@@ -154,7 +161,7 @@ const ProductPage = () => {
           <div className="mt-4 flex items-center py-1">
             <div className="flex border rounded-3xl overflow-hidden bg-gray-200">
               <button
-                onClick={() => setQuantity(quantity - 1)}
+                onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}
                 className="px-4 py-2 border-r border-t border-b rounded-l-2xl"
               >
                 <FaMinus />
@@ -170,7 +177,7 @@ const ProductPage = () => {
               </button>
             </div>
             <div className="ml-4">
-              <button className="px-20 py-2 bg-black text-white rounded-3xl">
+              <button className="px-16 md:px-20 py-2 bg-black text-white rounded-3xl">
                 Add to Cart
               </button>
             </div>
@@ -179,7 +186,7 @@ const ProductPage = () => {
       </div>
 
       {/* Links: Product Details, Ratings & Reviews, FAQs */}
-      <div className="flex justify-center space-x-24 mt-10">
+      <div className="flex justify-center space-x-6 md:space-x-24 mt-10">
         <Link
           to="/product-details"
           className={`px-4 py-2 ${
@@ -190,7 +197,7 @@ const ProductPage = () => {
           Product Details
         </Link>
         <Link
-          to="/ratings-reviews"
+          to="/Ratings & Reviews"
           className={`px-4 py-2 ${
             selectedLink === "ratings-reviews" ? "border-b-2 border-black" : ""
           }`}
@@ -199,7 +206,7 @@ const ProductPage = () => {
           Ratings & Reviews
         </Link>
         <Link
-          to="/faqs"
+          to="/Ratings & Reviews"
           className={`px-4 py-2 ${
             selectedLink === "faqs" ? "border-b-2 border-black" : ""
           }`}
@@ -211,13 +218,13 @@ const ProductPage = () => {
       <hr />
 
       {/* All Reviews and Latest */}
-      <div className="flex justify-between mt-8">
+      <div className="flex flex-col md:flex-row justify-between mt-8 space-y-4 md:space-y-0">
         <div>
           <p className="text-lg font-semibold">All Reviews (451)</p>
         </div>
         <div className="flex items-center space-x-2">
           {/* Icon */}
-          <div className="rounded-full px-3 py-3 bg-gray-200 hover:bg-black hover:text-white">
+          <div className="rounded-full p-3 bg-gray-200 hover:bg-black hover:text-white">
             <TbChartCandleFilled />
           </div>
           {/* Latest */}
@@ -331,7 +338,7 @@ const ProductPage = () => {
         </div>
       </div>
 
-      <div className="text-center">Load More Reviews</div>
+      <div className="text-center mt-4">Load More Reviews</div>
     </div>
   );
 };

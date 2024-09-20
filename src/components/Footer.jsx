@@ -2,9 +2,9 @@ import React from 'react';
 
 const TemporaryFooter = () => {
   return (
-    <footer className="bg-black text-white py-8 mt-2">
+    <footer className="bg-black text-white py-6 ">
       <div className="container md:col mx-auto text-center">
-        <div className="space-x-32 text-5xl">
+        <div className="space-x-32 text-4xl">
           <span>VERSACE</span>
           <span>ZARA</span>
           <span>GUCCI</span>

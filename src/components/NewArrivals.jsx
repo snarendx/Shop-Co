@@ -3,11 +3,11 @@ import { FaStar, FaStarHalf } from "react-icons/fa";
 
 const NewArrivals = () => {
   return (
-    <section className="py-8">
+    <section className="py-2">
       <div className="container mx-auto text-center">
         <h2 className="text-4xl font-extrabold mb-6">NEW ARRIVALS</h2>
-        <div className="flex justify-center space-x-2 overflow-x-auto">
-          <div className="w-64 p-4 text-left">
+        <div className="flex flex-wrap justify-center space-x-2 md:space-x-4 overflow-x-auto">
+          <div className="w-64 p-4 text-left flex-shrink-0">
             <img
               src="TShirt.jpg"
               alt="Product 1"
@@ -28,7 +28,8 @@ const NewArrivals = () => {
             </div>
             <p className="font-bold">$120</p>
           </div>
-          <div className="w-64 p-4 text-left">
+
+          <div className="w-64 p-4 text-left flex-shrink-0">
             <img
               src="SkinnyJeans.jpg"
               alt="Product 2"
@@ -36,7 +37,7 @@ const NewArrivals = () => {
             />
             <p className="mt-2">Skinny Fit Jeans</p>
             <div className="flex items-center justify-between mt-2">
-              <div className="flex items-center flex-col">
+              <div className="flex flex-col items-start">
                 <div className="flex items-center">
                   {[...Array(4)].map((_, index) =>
                     index < 3 ? (
@@ -47,21 +48,23 @@ const NewArrivals = () => {
                   )}
                   <p>3.5/5</p>
                 </div>
-                <div className="flex items-center">
-                  <di className="font-bold">$240</di>
+                <div className="flex items-center mt-2">
+                  <p className="font-bold">$240</p>
                   <p
                     className="text-gray-500 ml-2"
                     style={{ textDecoration: "line-through" }}
                   >
                     $260
                   </p>
-                  <div className="rounded-full h-8 w-20 bg-red-100 ml-2 justify-center mt-2 text-red-500 flex items-center"> -20%</div>
+                  <div className="rounded-full h-8 w-20 bg-red-100 ml-2 flex justify-center items-center text-red-500">
+                    -20%
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="w-64 p-4 text-left">
+          <div className="w-64 p-4 text-left flex-shrink-0">
             <img
               src="CheckRedShirt.jpg"
               alt="Product 3"
@@ -82,7 +85,8 @@ const NewArrivals = () => {
             </div>
             <p className="font-bold">$180</p>
           </div>
-          <div className="w-64 p-4 text-left">
+
+          <div className="w-64 p-4 text-left flex-shrink-0">
             <img
               src="SleeveStripedTShirt.jpg"
               alt="Product 4"

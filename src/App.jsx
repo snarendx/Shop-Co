@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
-import Footer from "./components/Footer";
 import NewArrivals from "./components/NewArrivals";
 import TopSelling from "./components/TopSelling";
 import BrowseByDressStyle from "./components/BrowseByDressStyle";
@@ -11,6 +10,19 @@ import ProductPage from "./components/ProductPage";
 import YouMightAlsoLike from "./components/YouMightAlsoLike";
 import FooterComponent from "./FooterComponent";
 import Home from "./components/Home";
+import ShoppingCart from "./components/ShoppingCart";
+import TemporaryFooter from "./components/Footer";
+
+function OnSale() {
+  return (
+    <div>
+      <BrowseByDressStyle />
+      <Home />
+    </div>
+  );
+}
+
+
 
 function App() {
   return (
@@ -20,21 +32,15 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HeroSection />} />
-            {/* Add other routes as needed */}
+            <Route path="/NewArrivals" element={<NewArrivals />} />
+            <Route path="/cart" element={<ShoppingCart />} />
+            <Route path="/shop" element={<ProductPage />} />
+            <Route path="/OnSale" element={<OnSale />} />
+            <Route path="/Brands" element={<TopSelling />} />
+            <Route path="/New Arrivals" element={<YouMightAlsoLike />} />
+            <Route path="/Brands" element={<HappyCustomers />} />
           </Routes>
         </main>
-        <Footer />
-        {/* Additional content below the footer */}
-        <NewArrivals />
-        <TopSelling />
-        <BrowseByDressStyle />
-        <HappyCustomers />
-      </div>
-      <div>
-        <ProductPage />
-        <YouMightAlsoLike />
-        <Home />
-
         <FooterComponent />
       </div>
     </Router>
